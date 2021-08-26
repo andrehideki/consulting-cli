@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './providers/auth';
+import './index.css';
 
 const App = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import "./LoginPage.css";
 import { useAuth } from "../../providers/auth";
+import { Form, FormPage } from "./styles";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -22,8 +22,9 @@ export default function LoginPage() {
   }
 
   return (
-      <form onSubmit={handleSubmit}>
-        <h1>Entrar no Sistema</h1>
+    <FormPage>
+      <h1>Entrar no Sistema</h1>
+      <Form onSubmit={ handleSubmit }>
         <label>
           Email
           <input type="email" name="email" value={values.email} onChange={handleChange} />
@@ -33,7 +34,8 @@ export default function LoginPage() {
           <input type="password" name="password" value={values.password} onChange={handleChange} />
         </label>
         <button>Login</button>
-        <div>{values.loginErrors}</div>
-      </form>
+      </Form>
+      <div>{values.loginErrors}</div>
+    </FormPage>
   );
 }

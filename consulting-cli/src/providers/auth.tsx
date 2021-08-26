@@ -23,9 +23,9 @@ export const AuthProvider: React.FC = ({ children }) => {
         .then(isValid => {
           if (isValid) {
             setAuthState(auth);
-            history.replace('/');
+            history.push('/');
           } else {
-            history.replace('/login');
+            history.push('/login');
           }
         });
     } else {

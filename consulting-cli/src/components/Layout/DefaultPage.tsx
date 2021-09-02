@@ -1,11 +1,15 @@
 import React from 'react';
 import NavBar from './Navbar';
+import { PageContent } from './styles';
 
 const DefaultPage = (props: any) => {
   return (
     <>
       <NavBar />
-      { props.children }
+      <PageContent>
+        <h2>{ props.title }</h2>
+        { props.children }
+      </PageContent>
     </>
   );
 }

@@ -12,7 +12,10 @@ const NavBar = () => {
         <Link to="/atividades">Atividades</Link>
       </Links>
       <UserContent>
-        <span>{ auth.email }</span>
+        <div>
+          <span>{ auth.name }</span>
+          <small>{ auth.email }</small>
+        </div>
         <Logout />
       </UserContent>
     </NavBarContent>

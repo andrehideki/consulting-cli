@@ -35,12 +35,33 @@ const UserContent = styled.div`
   justify-content: space-between;
   align-items: center;
   
+  div {
+    display: flex;
+    flex-direction: column;
+  }
 
   span {
     color: #4d94ff;
   }
+
+  small {
+    color: #80b3ff;
+    font-size: .75rem;
+  }
 `;
 
 
+const PageContent = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: #f2f2f2;
+  padding: 1rem;
 
-export { NavBarContent, Links, UserContent };
+  h2 {
+    margin-bottom: .5rem;
+  }
+`;
+
+
+export { NavBarContent, Links, UserContent, PageContent };

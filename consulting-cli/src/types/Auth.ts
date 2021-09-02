@@ -1,9 +1,11 @@
 import { LoginInput } from "../dto/login/LoginDTO";
 
 export type AuthType = {
+  id: number;
+  name: string;
   email: string;
-  userCategory: string;
   token: string;
+  userCategory: string;
 };
 
 export type AuthContextType = {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { LoginInput, LoginOutput } from '../dto/login/LoginDTO';
 import { LoginService } from '../service/LoginService';
@@ -7,30 +7,36 @@ import { AuthContextType, AuthType } from '../types/Auth';
 export const STORAGE_TOKEN = 'auth';
 
 export const AuthContext = React.createContext<AuthContextType>({
-  auth: { email: '', userCategory: '', token: ''}, setAuth: () => {}, logout: () => {}, login: (input: LoginInput) => {}
+  auth: { email: '', userCategory: '', token: '', name: '', id: 0 }, setAuth: () => { }, logout: () => { }, login: (input: LoginInput) => { }
 });
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [auth, setAuthState] = React.useState<AuthType>({ email: '', userCategory: '', token: ''});
+  const [auth, setAuthState] = React.useState<AuthType>({ email: '', userCategory: '', token: '', name: '', id: 0 });
   const history = useHistory();
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     const authStorage = localStorage.getItem(STORAGE_TOKEN);
-    if (authStorage) {
+    if (!!authStorage) {
       const auth = JSON.parse(authStorage);
-      new LoginService().isTokenValid(auth.token)
-        .then(isValid => {
-          if (isValid) {
-            setAuthState(auth);
-            history.push('/');
-          } else {
-            history.push('/login');
-          }
-        });
-    } else {
-      setAuthState({ email: '', userCategory: '', token: ''});
+      console.log('is valid TOKEN')
+      if (!!auth.token) {
+        new LoginService().isTokenValid(auth.token)
+          .then(isValid => {
+            if (isValid) {
+              console.log('VALID')
+              setAuthState(auth);
+              history.push('/');
+            } else {
+              localStorage.removeItem(STORAGE_TOKEN);
+              history.push('/login');
+            }
+          })
+          .catch(error => console.error(error));
+      }
+      return;
     }
+    setAuthState({ email: '', userCategory: '', token: '', name: '', id: 0 });
   }, [history]);
 
   function setAuth(auth: LoginOutput) {
@@ -53,8 +59,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, logout, login } }>
-      { children }
+    <AuthContext.Provider value={{ auth, setAuth, logout, login }}>
+      {children}
     </AuthContext.Provider>
   );
 }

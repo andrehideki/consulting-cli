@@ -4,7 +4,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './providers/auth';
-import './index.css';
+import { GlobalStyle } from './components/Style/GlobalStyle';
 
 const App = () => {
   return (
@@ -15,6 +15,8 @@ const App = () => {
           <PrivateRoute path="/" exact component={ActivitiesPage} />
           <PrivateRoute path="/atividades" exact component={ActivitiesPage} />
         </Switch>
+
+        <GlobalStyle />
       </AuthProvider>
     </Router>
   );

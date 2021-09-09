@@ -1,19 +1,42 @@
+import { FC } from 'react';
 import MonthsSelect from '../../Layout/Inputs/MonthSelect/MonthsSelect';
-import YearSelect from '../../Layout/Inputs/YearSelect/YearSelect';
 import { Container, Button, SearchIcon } from './styles';
 
-export default function ActivitiesFilter() {
-  
+interface Props {
+  filter: Filter;
+  setFilter: Function;
+  searchActivities: Function;
+}
+
+export interface Filter {
+  year: number;
+  month: number;
+}
+
+export const ActivitiesFilter: FC<Props> = ({ filter, setFilter, searchActivities }) => {
+
+  const { year, month } = filter;
+
+  const handleChange = (event: any) => {
+    const { value, name } = event.target;
+    setFilter({ ...filter, [name]: value })
+  }
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    searchActivities(month, year);
+  }
+
   return (
     <Container>
-      <form>
+      <form onSubmit={ handleSubmit }>
         <div>
           <label>Mês</label>
-          <MonthsSelect />
+          <MonthsSelect id="month" name="month" value={ month } onChange={ handleChange } />
         </div>
         <div>
           <label>Ano</label>
-          <YearSelect/>
+          <input id="year" name="year" value={ year } type="text" placeholder="Ano" onChange={ handleChange }/>
         </div>
         <Button>
           <SearchIcon/>
@@ -23,3 +46,5 @@ export default function ActivitiesFilter() {
     </Container>
   );
 }
+
+export default ActivitiesFilter;

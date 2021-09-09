@@ -5,22 +5,32 @@ import { Acitivity } from "../../types/Activity";
 import { get } from "../../utils/request";
 import { Container } from './styles';
 import ConsultingActivity from "./Activity/Activity";
-import ActivitiesFilter from "./Filter/ActivitiesFilter";
+import ActivitiesFilter, { Filter } from "./Filter/ActivitiesFilter";
+import { today } from "../../utils/date";
 
 export default function ConsultingActivities() {
+  
+  const [filter, setFilter] = useState<Filter>({
+    month: today().getMonth() + 1,
+    year: today().getFullYear()
+  });
   const [activities, setActivities] = useState<Acitivity[]>([]);
   const { auth } = useAuth();
 
   useEffect(() => {
     if (!auth.id) return;
-      get<Acitivity[]>(`consulting/${auth.id}/activity?month=1&year=2021`)
-        .then((activities: Acitivity[]) => setActivities(activities))
-        .catch(error => console.log(error));
+    searchActivities(filter.month, filter.year);
   }, [auth]);
+
+  const searchActivities = (month: number, year: number) => {
+    get<Acitivity[]>(`consulting/${auth.id}/activity?month=${month}&year=${year}`)
+      .then((activities: Acitivity[]) => setActivities(activities))
+      .catch(error => console.log(error));
+  }
 
   return (
     <Container>
-      <ActivitiesFilter />
+      <ActivitiesFilter filter={ filter } setFilter={ setFilter } searchActivities={ searchActivities }/>
       { activities.map(activity => (
         <ConsultingActivity key={ activity.id } activity={ activity } />
       )) }

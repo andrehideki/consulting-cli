@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   background: #fafafa;
@@ -11,24 +11,38 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Status = styled.div`
-
-`;
-
-export const Title = styled.div`
+const section = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: column;
-  width: 20%;
-  
-  small {
+  font-weight: bold;
+
+  &:before {
+    font-size: .8rem;
     font-weight: 500;
-    color: #b3b3b3;
+    content: "${ props => props.title}";
   }
 `;
 
-export const Hours = styled.div`
+export const Status = styled(section)`
+  font-size: 0;
+  background: var(${ props => props.children?.toString() == 'opened'? '--color-open-activity' : '--color-closed-activity' });
+  padding: .25rem;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  &:after {
+    font-size: 1rem;
+    content: "${ props => props.children?.toString() == 'opened'? 'Aberto' : 'Fechado' }";
+  }
 `;
 
-export const Date = styled.div`
+export const Title = styled(section)`
+  width: 20%;
+`;
+
+export const Hours = styled(section)`
+`;
+
+export const Date = styled(section)`
 `;

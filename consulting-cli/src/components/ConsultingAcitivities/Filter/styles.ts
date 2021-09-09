@@ -14,19 +14,6 @@ export const Container = styled.div`
     div {
       display: flex;
       flex-direction: column;
-
-      select {
-        font-size: 1rem;
-        padding: .5rem;
-      }
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 0.5rem;
     }
   }
 `
@@ -37,5 +24,17 @@ export const SearchIcon = styled(MdSearch)`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
 
+  color: var(--color-white);
+  background: var(--color-primary);
+
+  &:hover {
+    transition: .4s;
+    background: var(--color-primary-accent);
+  }
 `

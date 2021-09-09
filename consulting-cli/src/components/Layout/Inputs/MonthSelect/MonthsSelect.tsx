@@ -1,6 +1,6 @@
 export default function MonthsSelect(props: any) {
   return (
-    <select>
+    <select {...props}>
       <option value="1">Janeiro</option>
       <option value="2">Fevereiro</option>
       <option value="3">Março</option>

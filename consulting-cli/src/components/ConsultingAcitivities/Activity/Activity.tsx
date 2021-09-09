@@ -6,13 +6,16 @@ function Activity(props: any) {
 
   return (
     <Container>
-      <Title>
-        <small>Nome</small>
-        <span>{ activity.name }</span>
+      <Title title="Nome">
+        { activity.name }
       </Title>
-      <Hours>{ activity.hours } horas</Hours>
-      <Date>{ format(activity.date, 'DD/MM/YYYY') }</Date>
-      <Status>{ activity.status }</Status>
+      <Hours title="Quantidade de Horas">
+        { activity.hours } horas
+      </Hours>
+      <Date title="Data">
+        { format(activity.date, 'DD/MM/YYYY') }
+      </Date>
+      <Status title="Status">{ activity.status }</Status>
     </Container>
   )
 }

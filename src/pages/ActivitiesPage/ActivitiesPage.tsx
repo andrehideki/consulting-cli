@@ -7,7 +7,7 @@ export default function ActivitiesPage() {
   return (
     <DefaultPage title="Atividades">
       <ConsultingActivities />
-      <RegisterActivityLink to="/activity/register">
+      <RegisterActivityLink to="/activities/register">
         <RegisterIcon />
       </RegisterActivityLink>
     </DefaultPage>

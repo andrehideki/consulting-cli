@@ -16,15 +16,20 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --color-primary: #0066cc;
     --color-primary-accent: #1a8cff;
-    --color-white: #f5faff;
+    --color-white: #fdfeff;
 
     --color-open-activity: #008000;
     --color-closed-activity: #ff6666;
+
+    --color-border: #b3b3b3
   }
 
   input, select {
     border: none;
     padding: .25rem;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
   }
 
   button {

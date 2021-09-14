@@ -7,9 +7,18 @@ async function get<T>(resource: string): Promise<T> {
   try {
     const response = await client.get<T>(resource, { withCredentials: true});
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error.message);
   }
 }
 
-export { get };
+async function post<T>(resource: string, data: T): Promise<T> {
+  try {
+    const response = await client.post<any>(resource, data, { withCredentials: true});
+    return response.data;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
+
+export { get, post };

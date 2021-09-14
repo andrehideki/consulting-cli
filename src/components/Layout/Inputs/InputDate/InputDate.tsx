@@ -9,7 +9,7 @@ export interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {
 export default function InputDate(props: InputDateProps) {
   return (
     <Container>
-      <label>{props.label} {props.required && '*'}</label>
+      <label>{props.label} {props.required === false && 'Opcional'}</label>
       <br/>
       <input type="date" {...props} />
     </Container>

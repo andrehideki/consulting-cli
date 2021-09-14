@@ -7,3 +7,12 @@ export type Acitivity = {
   hours: number;
   status: string;
 }
+
+export type RegisterAcitivity = {
+  name: string;
+  tags: string[];
+  date: string;
+  amountOfHours: number;
+  description: string;
+  consultingId: number;
+}

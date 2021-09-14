@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export const Form = styled.div`
-  padding: 1rem 4rem;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2.5rem 4rem;
   background: var(--color-white);
   width: 100%;
   height: 85%;
@@ -10,5 +14,12 @@ export const Form = styled.div`
 `
 
 export const SaveButton = styled.button`
+  padding: .75rem 1.75rem;
+  color: var(--color-white);
+  font-weight: bold;
+  background: var(--color-primary);
+`
 
+export const CancelButton = styled.button`
+  padding: .75rem 1.75rem;
 `

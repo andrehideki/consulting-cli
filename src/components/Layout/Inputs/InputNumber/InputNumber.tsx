@@ -9,7 +9,7 @@ export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> 
 export default function InputNumber(props: InputNumberProps) {
   return (
     <Container>
-      <label>{props.label} {props.required && '*'}</label>
+      <label>{props.label} {props.required === false && 'Opcional'}</label>
       <br/>
       <input type="number" {...props} />
     </Container>

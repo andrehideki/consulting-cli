@@ -4,6 +4,7 @@ import styled from "styled-components";
 export interface InputDateProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;
+  rows?: number;
 }
 
 export default function TextArea(props: InputDateProps) {

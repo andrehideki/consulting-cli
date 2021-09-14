@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-border: #b3b3b3
   }
 
-  input, select {
+  input, select, textarea {
     border: none;
     padding: .25rem;
     background: var(--color-white);

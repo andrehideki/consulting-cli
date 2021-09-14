@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  name: string;
   required?: boolean;
 }
 
 export default function InputText(props: InputTextProps) {
   return (
     <Container>
-      <label>{props.label} {props.required && '*'}</label>
+      <label>{props.label} {!props.required && 'Opcional'}</label>
       <br/>
       <input {...props} />
     </Container>

@@ -1,6 +1,6 @@
 import React from "react";
 import ConsultingActivities from "../../components/ConsultingAcitivities/ConsultingActivities";
-import DefaultPage from "../../components/Layout/DefaultPage";
+import DefaultPage from "../../components/Layout/DefaultPage/DefaultPage";
 import { RegisterActivityLink, RegisterIcon } from "./styles";
 
 export default function ActivitiesPage() {

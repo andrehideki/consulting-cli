@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../providers/auth";
-import Logout from "../Logout/Logout";
+import { useAuth } from "../../../providers/auth";
+import Logout from "../../Logout/Logout";
 import { NavBarContent, Links, UserContent } from "./styles";
 
 const NavBar = () => {

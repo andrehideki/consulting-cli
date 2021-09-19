@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
-import DefaultPage from "../../components/Layout/DefaultPage";
+import DefaultPage from "../../components/Layout/DefaultPage/DefaultPage";
 import InputDate from "../../components/Layout/Inputs/InputDate/InputDate";
 import InputNumber from "../../components/Layout/Inputs/InputNumber/InputNumber";
 import InputText from "../../components/Layout/Inputs/InputText/InputText";

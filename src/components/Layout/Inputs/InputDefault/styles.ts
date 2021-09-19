@@ -13,7 +13,7 @@ export const Input = styled.div`
   display: flex;
   width: 100%;
 
-  input {
+  input, textarea, select {
     width: 100%;
   }
 `;

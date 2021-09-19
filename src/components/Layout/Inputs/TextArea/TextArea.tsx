@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-import styled from "styled-components";
+import InputDefault from "../InputDefault/InputDefault";
 
 export interface InputDateProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label: string;
@@ -9,18 +9,8 @@ export interface InputDateProps extends InputHTMLAttributes<HTMLTextAreaElement>
 
 export default function TextArea(props: InputDateProps) {
   return (
-    <Container>
-      <label>{props.label} {props.required && '*'}</label>
-      <br/>
+    <InputDefault label={props.label} required={props.required}>
       <textarea {...props}></textarea>
-    </Container>
+    </InputDefault>
   );
 }
-
-const Container = styled.div`
-  width: 100%;
-  
-  textarea {
-    width: 100%;
-  }
-`

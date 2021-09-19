@@ -1,5 +1,4 @@
 import { InputHTMLAttributes } from "react";
-import styled from "styled-components";
 import InputDefault from "../InputDefault/InputDefault";
 
 export interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {

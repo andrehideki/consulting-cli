@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-import styled from "styled-components";
+import InputDefault from "../InputDefault/InputDefault";
 
 export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -8,18 +8,8 @@ export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> 
 
 export default function InputNumber(props: InputNumberProps) {
   return (
-    <Container>
-      <label>{props.label} {props.required === false && 'Opcional'}</label>
-      <br/>
+    <InputDefault label={ props.label } required={ props.required }>
       <input type="number" {...props} />
-    </Container>
+    </InputDefault>
   );
-}
-
-const Container = styled.div`
-  width: 100%;
-  
-  input {
-    width: 100%;
-  }
-`
+};

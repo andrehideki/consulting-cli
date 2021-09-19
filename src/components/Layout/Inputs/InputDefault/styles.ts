@@ -6,6 +6,7 @@ export const Container = styled.div`
 
 export const Label = styled.div`
   display: block;
+  margin-bottom: .5rem;
 `;
 
 export const Input = styled.div`

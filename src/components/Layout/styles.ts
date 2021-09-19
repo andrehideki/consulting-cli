@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NavBarContent = styled.nav`
+export const NavBarContent = styled.nav`
   width: 100%;
   padding: 1rem;
 
@@ -10,7 +10,7 @@ const NavBarContent = styled.nav`
   justify-content: space-between;
 `;
 
-const Links = styled.div`
+export const Links = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -28,7 +28,7 @@ const Links = styled.div`
   }
 `;
 
-const UserContent = styled.div`
+export const UserContent = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -51,17 +51,14 @@ const UserContent = styled.div`
 `;
 
 
-const PageContent = styled.div`
+export const PageContent = styled.div`
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background: #f2f2f2;
-  padding: 1rem;
-
-  h2 {
-    margin-bottom: .5rem;
-  }
+  background: var(--color-white);
+  padding: 2rem 5rem;
 `;
 
-
-export { NavBarContent, Links, UserContent, PageContent };
+export const Title = styled.h2`
+  margin-bottom: 2rem;
+`;

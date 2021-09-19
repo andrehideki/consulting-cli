@@ -1,13 +1,12 @@
-import React from 'react';
 import NavBar from './Navbar';
-import { PageContent } from './styles';
+import { PageContent, Title } from './styles';
 
 const DefaultPage = (props: any) => {
   return (
     <>
       <NavBar />
       <PageContent>
-        <h2>{ props.title }</h2>
+        <Title>{ props.title }</Title>
         { props.children }
       </PageContent>
     </>

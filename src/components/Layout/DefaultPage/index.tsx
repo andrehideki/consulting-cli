@@ -1,4 +1,4 @@
-import NavBar from '../Navbar/Navbar';
+import NavBar from '../Navbar';
 import { PageContent, Title, Container, Content } from './styles';
 
 const DefaultPage = (props: any) => {

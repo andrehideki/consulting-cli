@@ -4,8 +4,8 @@ import { useAuth } from "../../providers/auth";
 import { Acitivity } from "../../types/Activity";
 import { get } from "../../utils/request";
 import { Container } from './styles';
-import ConsultingActivity from "./Activity/Activity";
-import ActivitiesFilter, { Filter } from "./Filter/ActivitiesFilter";
+import ConsultingActivity from "./Activity";
+import ActivitiesFilter, { Filter } from "./Filter";
 import { today } from "../../utils/date";
 
 export default function ConsultingActivities() {

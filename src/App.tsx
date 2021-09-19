@@ -1,11 +1,10 @@
-import React from 'react';
-import PrivateRoute from './components/Route/PrivateRoute';
-import LoginPage from './pages/LoginPage/LoginPage';
-import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage';
+import PrivateRoute from './components/Route';
+import LoginPage from './pages/LoginPage';
+import ActivitiesPage from './pages/ActivitiesPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './providers/auth';
 import { GlobalStyle } from './components/Style/GlobalStyle';
-import RegisterActivityPage from './pages/RegisterAcitivityPage/RegisterAcitivityPage';
+import RegisterActivityPage from './pages/RegisterAcitivityPage';
 
 const App = () => {
   return (

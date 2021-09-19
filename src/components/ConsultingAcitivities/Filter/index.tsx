@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import MonthsSelect from '../../Layout/Inputs/MonthSelect/MonthsSelect';
+import MonthsSelect from '../../Layout/Inputs/MonthSelect';
 import { Container, Button, SearchIcon } from './styles';
 
 interface Props {

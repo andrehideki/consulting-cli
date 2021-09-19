@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
-import DefaultPage from "../../components/Layout/DefaultPage/DefaultPage";
-import InputDate from "../../components/Layout/Inputs/InputDate/InputDate";
-import InputNumber from "../../components/Layout/Inputs/InputNumber/InputNumber";
-import InputText from "../../components/Layout/Inputs/InputText/InputText";
-import TextArea from "../../components/Layout/Inputs/TextArea/TextArea";
-import Row from "../../components/Layout/Row/Row";
+import DefaultPage from "../../components/Layout/DefaultPage";
+import InputDate from "../../components/Layout/Inputs/InputDate";
+import InputNumber from "../../components/Layout/Inputs/InputNumber";
+import InputText from "../../components/Layout/Inputs/InputText";
+import TextArea from "../../components/Layout/Inputs/TextArea";
+import Row from "../../components/Layout/Row";
 import { useAuth } from "../../providers/auth";
 import { RegisterAcitivity } from "../../types/Activity";
 import { post } from "../../utils/request";

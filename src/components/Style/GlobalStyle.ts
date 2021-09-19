@@ -11,17 +11,20 @@ export const GlobalStyle = createGlobalStyle`
   body, html {
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
   :root {
     --color-primary: #0066cc;
     --color-primary-accent: #1a8cff;
     --color-white: #fdfeff;
+    --color-white-blue: #e5f2ff;
 
     --color-open-activity: #008000;
     --color-closed-activity: #ff6666;
 
-    --color-border: #b3b3b3
+    --color-border: #b3b3b3;
+    --color-sidebar: #004080;
   }
 
   input, select, textarea {

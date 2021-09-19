@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
 `;
 
 export const PageContent = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
+  margin-left: 20%;
+  width: 80%;
   background: var(--color-white);
-  padding: 2rem 5rem;
 `;
 
 export const Title = styled.h2`
@@ -16,4 +20,5 @@ export const Title = styled.h2`
 `;
 
 export const Content = styled.div`
+  padding: 1rem 1.25rem 0 1.25rem;overflow-y: hidden;
 `;

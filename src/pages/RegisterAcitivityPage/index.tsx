@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import DefaultPage from "../../components/Layout/DefaultPage";
 import InputDate from "../../components/Layout/Inputs/InputDate";
 import InputNumber from "../../components/Layout/Inputs/InputNumber";
+import InputTags from "../../components/Layout/Inputs/InputTags";
 import InputText from "../../components/Layout/Inputs/InputText";
 import TextArea from "../../components/Layout/Inputs/TextArea";
 import Row from "../../components/Layout/Row";
@@ -42,12 +43,12 @@ export default function RegisterActivityPage() {
 
   return (
     <DefaultPage title="Nova Atividade" previous="/activities">
-      <Form onSubmit={ handleSubmit }>
+      <Form onSubmit={ handleSubmit } autoComplete="off">
         <Row>
           <InputText name="name" label="Nome" value={ activity.name } onChange={ handleChange } required={ true }/>
         </Row>
         <Row>
-          <InputText name="tags" label="Tags" value={ activity.tags } onChange={ handleChange }/>
+          <InputTags name="tags" label="Tags" value={ activity.tags } onChange={ handleChange } />
         </Row>
         <Row>
           <InputDate name="date" label="Data" value={ activity.date } onChange={ handleChange } required={ true }/>

@@ -11,6 +11,7 @@ export const Label = styled.div`
 
 export const Input = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
 
   input, textarea, select {

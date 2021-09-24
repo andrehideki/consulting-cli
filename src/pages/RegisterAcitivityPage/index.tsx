@@ -41,6 +41,9 @@ export default function RegisterActivityPage() {
     setActivity({...activity, [name]: value});
   }
 
+  function handleChangeTags(tags: string[]) {
+  }
+
   return (
     <DefaultPage title="Nova Atividade" previous="/activities">
       <Form onSubmit={ handleSubmit } autoComplete="off">
@@ -48,7 +51,7 @@ export default function RegisterActivityPage() {
           <InputText name="name" label="Nome" value={ activity.name } onChange={ handleChange } required={ true }/>
         </Row>
         <Row>
-          <InputTags name="tags" label="Tags" value={ activity.tags } onChange={ handleChange } />
+          <InputTags name="tags" label="Tags" value={ activity.tags } onChange={ handleChange }  onChangeTags={ handleChangeTags }/>
         </Row>
         <Row>
           <InputDate name="date" label="Data" value={ activity.date } onChange={ handleChange } required={ true }/>

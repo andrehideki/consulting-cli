@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, useEffect, useState } from "react";
 import InputDefault from "../InputDefault";
-import { PossibleTag, PossibleTags } from "./styles";
+import { PossibleTag, PossibleTags, SelectedTag, SelectedTags } from "./styles";
 import { get } from '../../../../utils/request';
 import { Key } from "../../../../types/Key";
 
@@ -14,7 +14,7 @@ export interface TagsTextProps extends InputHTMLAttributes<HTMLInputElement> {
 interface tags {
   availables: string[];
   matching: string[];
-  selectedTags: Set<String>;
+  selectedTags: string[];
   selectedTagIndex: number;
 }
 
@@ -24,7 +24,7 @@ export default function InputTags(props: TagsTextProps) {
   const [tags, setTags] = useState<tags>({
     availables: [],
     matching: [],
-    selectedTags: new Set<String>(),
+    selectedTags: [],
     selectedTagIndex: 0
   });
 
@@ -65,24 +65,40 @@ export default function InputTags(props: TagsTextProps) {
   function handlePossibleTagClick(event: any) {
     const value = event.target.innerText;
     const selectedTags = tags.selectedTags;
-    selectedTags.add(value);;
+    if (selectedTags.find(tag => tag === value)) 
+      return; 
+    selectedTags.push(value);;
     setPossibleTag("");
     setTags({...tags, selectedTags: selectedTags});
-    console.log(tags)
+    console.log(selectedTags)
+  }
+
+  function handlePossibleTagMouseEnter(event: any) {
+    const value = event.target.innerText;
+    setTags({...tags, selectedTagIndex: tags.matching.indexOf(value)});
   }
 
   return (
-    <InputDefault label={props.label} required={props.required}>
+    <InputDefault label={props.label} required={props.required}> 
+      <SelectedTags>
+        { tags.selectedTags.map((tag) => (
+          <SelectedTag key={ tag } >{ tag }</SelectedTag>
+        ))}
+      </SelectedTags>
       <input type="hidden" {...props} />
       <input value={ possibleTag } onKeyUp={ handleKeyUp } onChange={ handleChange } />
-      <PossibleTags>
-        { tags.matching.map((tag, tagIndex) => (
-          <PossibleTag key={ tag } className={ tagIndex === tags.selectedTagIndex? 'selected' : ''}
-            onClick={ handlePossibleTagClick }>
-            { tag }
-          </PossibleTag>
-        ))}
-      </PossibleTags>
+      <div>
+        <PossibleTags>
+          { tags.matching.map((tag, tagIndex) => (
+            <PossibleTag key={ tag } className={ tagIndex === tags.selectedTagIndex? 'selected' : ''}
+              onClick={ handlePossibleTagClick }
+              onMouseEnter={ handlePossibleTagMouseEnter }
+              onKeyUp={ handleKeyUp }>
+              { tag }
+            </PossibleTag>
+          ))}
+        </PossibleTags>
+      </div>
     </InputDefault>
   );
 }

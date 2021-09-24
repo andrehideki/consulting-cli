@@ -21,7 +21,8 @@ export const PossibleTag = styled.div`
   cursor: pointer;
   transition: .3s;
   
-  &:hover {
+  &:hover, &.selected {
+    font-weight: bold;
     background: var(--color-white-blue);
   }
 `;

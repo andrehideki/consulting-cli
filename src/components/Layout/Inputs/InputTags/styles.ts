@@ -10,6 +10,7 @@ export const PossibleTags = styled.div`
   border: 1px solid var(--color-border);
   border-radius: 6px;
   z-index: 99;
+  transition: .2s;
 `;
 
 export const PossibleTag = styled.div`
@@ -17,4 +18,10 @@ export const PossibleTag = styled.div`
   padding: .25rem;
   background: var(--color-white);
   border-top: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: .3s;
+  
+  &:hover {
+    background: var(--color-white-blue);
+  }
 `;

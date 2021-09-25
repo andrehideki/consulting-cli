@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, useEffect, useState } from "react";
 import InputDefault from "../InputDefault";
-import { PossibleTag, PossibleTags, SelectedTag, SelectedTags } from "./styles";
+import { PossibleTag, PossibleTags, SelectedTag, SelectedTags, CloseIcon } from "./styles";
 import { get } from '../../../../utils/request';
 import { Key } from "../../../../types/Key";
 
@@ -78,11 +78,21 @@ export default function InputTags(props: TagsTextProps) {
     setTags({...tags, selectedTagIndex: tags.matching.indexOf(value)});
   }
 
+  function handleCloseIconClick(event: any) {
+    const value = event.target.previousSibling.innerHTML;
+    const filteredTags = tags.selectedTags.length > 1? 
+      tags.selectedTags.filter(tag => tag !== value) : [];
+    setTags({...tags, selectedTags: filteredTags});
+  }
+
   return (
     <InputDefault label={props.label} required={props.required}> 
       <SelectedTags>
         { tags.selectedTags.map((tag) => (
-          <SelectedTag key={ tag } >{ tag }</SelectedTag>
+          <SelectedTag key={ tag } >
+            <span>{ tag }</span>
+            <CloseIcon onClick={ handleCloseIconClick } />
+          </SelectedTag>
         ))}
       </SelectedTags>
       <input type="hidden" {...props} />

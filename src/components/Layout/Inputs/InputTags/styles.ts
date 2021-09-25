@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { VscClose } from 'react-icons/vsc';
 
 export const PossibleTags = styled.div`
   position: absolute;
@@ -35,9 +36,17 @@ export const SelectedTags = styled.div`
 `;
 
 export const SelectedTag = styled.div`
+  display: flex;
+  align-items: center;
+  gap: .25rem;
   font-size: 1rem;
   color: var(--color-white);
   background: var(--color-primary);
   padding: .5rem;
   border-radius: 6px;
+`;
+
+export const CloseIcon = styled(VscClose)`
+  cursor: pointer;
+  font-size: 1rem;
 `;

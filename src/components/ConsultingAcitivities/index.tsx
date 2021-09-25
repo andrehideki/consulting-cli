@@ -33,7 +33,8 @@ export default function ConsultingActivities() {
       <ActivitiesFilter filter={ filter } setFilter={ setFilter } searchActivities={ searchActivities }/>
       { activities.map(activity => (
         <ConsultingActivity key={ activity.id } activity={ activity } />
-      )) }
+        )
+      )}
     </Container>
   );
 }

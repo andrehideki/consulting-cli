@@ -6,6 +6,7 @@ export type Acitivity = {
   name: string;
   hours: number;
   status: string;
+  tags: string[];
 }
 
 export type RegisterAcitivity = {

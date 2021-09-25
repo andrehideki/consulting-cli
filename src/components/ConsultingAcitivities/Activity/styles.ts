@@ -46,3 +46,6 @@ export const Hours = styled(section)`
 
 export const Date = styled(section)`
 `;
+
+export const Tags = styled(section)`
+`;

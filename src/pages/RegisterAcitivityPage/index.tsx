@@ -42,6 +42,7 @@ export default function RegisterActivityPage() {
   }
 
   function handleChangeTags(tags: string[]) {
+    setActivity({...activity, tags });
   }
 
   return (

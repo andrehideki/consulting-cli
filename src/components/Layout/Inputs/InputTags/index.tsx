@@ -36,6 +36,12 @@ export default function InputTags(props: TagsTextProps) {
   }, []);
 
   useEffect(() => {
+    if (!!tags.selectedTags) {
+      props.onChangeTags(tags.selectedTags);
+    }
+  }, [tags]);
+
+  useEffect(() => {
     let matchingTags = !!possibleTag? 
       tags.availables.filter(tag => {
         return tag.includes(possibleTag)}):
@@ -70,7 +76,6 @@ export default function InputTags(props: TagsTextProps) {
     selectedTags.push(value);;
     setPossibleTag("");
     setTags({...tags, selectedTags: selectedTags});
-    console.log(selectedTags)
   }
 
   function handlePossibleTagMouseEnter(event: any) {

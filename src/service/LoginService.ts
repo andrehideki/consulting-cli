@@ -2,7 +2,6 @@ import { CONSULTING_API_URL } from '../utils/constants';
 import { LoginInput, LoginOutput } from '../dto/login/LoginDTO';
 import { removeCookie, setCookie } from '../utils/cookie';
 import axios from 'axios';
-import { Console } from 'console';
 
 
 export class LoginService {
@@ -18,7 +17,7 @@ export class LoginService {
       const loginOutput = response.data;
       setCookie(this.COOKIE_TOKEN, response.data.token, nowPlusOneHour);
       return loginOutput;
-    } catch (error) {
+    } catch (error: any) {
       console.log(error, error.message)
     }
   }

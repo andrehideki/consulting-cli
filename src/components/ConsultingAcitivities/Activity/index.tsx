@@ -1,7 +1,13 @@
-import { Container, Title, Status, Hours, Date } from "./styles";
+import { Container, Title, Status, Hours, Date, Tags } from "./styles";
 import { format } from '../../../utils/date';
+import { Acitivity } from "../../../types/Activity";
 
-function Activity(props: any) {
+
+interface ActivityProps {
+  activity: Acitivity;
+}
+
+function Activity(props: ActivityProps) {
   const { activity } = props;
 
   return (
@@ -12,6 +18,9 @@ function Activity(props: any) {
       <Hours title="Quantidade de Horas">
         { activity.hours } horas
       </Hours>
+      <Tags title="Tags">
+        { activity.tags.map(tag => <span>{tag}</span>) } 
+      </Tags>
       <Date title="Data">
         { format(activity.date, 'DD/MM/YYYY') }
       </Date>

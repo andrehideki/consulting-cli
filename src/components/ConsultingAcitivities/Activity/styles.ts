@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #fafafa;
@@ -26,14 +26,14 @@ const section = styled.div`
 
 export const Status = styled(section)`
   font-size: 0;
-  background: var(${ props => props.children?.toString() == 'opened'? '--color-open-activity' : '--color-closed-activity' });
+  background: var(${ props => props.children?.toString() === 'opened'? '--color-open-activity' : '--color-closed-activity' });
   padding: .25rem;
   border-radius: 6px;
   font-weight: bold;
   color: white;
   &:after {
     font-size: 1rem;
-    content: "${ props => props.children?.toString() == 'opened'? 'Aberto' : 'Fechado' }";
+    content: "${ props => props.children?.toString() === 'opened'? 'Aberto' : 'Fechado' }";
   }
 `;
 

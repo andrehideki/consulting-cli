@@ -22,7 +22,7 @@ export default function ConsultingActivities() {
     searchActivities(filter.month, filter.year);
   }, [auth]);
 
-  const searchActivities = (month: number, year: number) => {
+  function searchActivities(month: number, year: number) {
     get<Acitivity[]>(`consulting/${auth.id}/activity?month=${month}&year=${year}`)
       .then((activities: Acitivity[]) => setActivities(activities))
       .catch(error => console.log(error));

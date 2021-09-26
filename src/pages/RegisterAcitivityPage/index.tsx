@@ -28,12 +28,13 @@ export default function RegisterActivityPage() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    post<RegisterAcitivity>('activity', activity)
-      .then(data => alert("Atividade cadastrada com sucesso!"))
-      .then(() => history.push('/'))
-      .catch(error => {
-        alert(error)
-      });
+    console.log('submit')
+    // post<RegisterAcitivity>('activity', activity)
+    //   .then(data => alert("Atividade cadastrada com sucesso!"))
+    //   .then(() => history.push('/'))
+    //   .catch(error => {
+    //     alert(error)
+    //   });
   }
 
   function handleChange(event: any) {

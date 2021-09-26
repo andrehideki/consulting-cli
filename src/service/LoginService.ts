@@ -30,7 +30,6 @@ export class LoginService {
   async isTokenValid(token: string) {
     try {
       const isValid = await axios.post<LoginOutput>(`${this.url}/token`, {token});
-      console.log('here')
       return isValid;
     } catch (error) {
       return false;

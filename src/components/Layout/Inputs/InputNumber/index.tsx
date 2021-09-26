@@ -4,6 +4,7 @@ import InputDefault from "../InputDefault";
 export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   required?: boolean;
+  errors?: string[];
 }
 
 export default function InputNumber(props: InputNumberProps) {

@@ -4,6 +4,7 @@ import InputDefault from "../InputDefault";
 export interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   required?: boolean;
+  errors?: string[];
 }
 
 export default function InputDate(props: InputDateProps) {

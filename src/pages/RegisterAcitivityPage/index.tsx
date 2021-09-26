@@ -26,15 +26,17 @@ export default function RegisterActivityPage() {
     description: ''
   });
 
-  function handleSubmit(event: any) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
-    console.log('submit')
-    // post<RegisterAcitivity>('activity', activity)
-    //   .then(data => alert("Atividade cadastrada com sucesso!"))
-    //   .then(() => history.push('/'))
-    //   .catch(error => {
-    //     alert(error)
-    //   });
+    try {
+      validate();
+      post<RegisterAcitivity>('activity', activity)
+      alert("Atividade cadastrada com sucesso!");
+      history.push('/');
+    } catch (error: any) {
+      alert(error);
+      console.log(error);
+    }
   }
 
   function handleChange(event: any) {
@@ -44,6 +46,10 @@ export default function RegisterActivityPage() {
 
   function handleChangeTags(tags: string[]) {
     setActivity({...activity, tags });
+  }
+
+  function validate() {
+    if (activity.amountOfHours <= 0) throw new Error();
   }
 
   return (

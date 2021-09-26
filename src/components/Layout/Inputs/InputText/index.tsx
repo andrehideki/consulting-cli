@@ -5,6 +5,7 @@ export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   required?: boolean;
+  errors?: string[];
 }
 
 export default function InputText(props: InputTextProps) {

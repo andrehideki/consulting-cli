@@ -5,6 +5,7 @@ export interface InputDateProps extends InputHTMLAttributes<HTMLTextAreaElement>
   label: string;
   required?: boolean;
   rows?: number;
+  errors?: string[];
 }
 
 export default function TextArea(props: InputDateProps) {

@@ -9,6 +9,7 @@ export interface TagsTextProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   required?: boolean;
   onChangeTags: Function;
+  errors?: string[];
 }
 
 interface tags {

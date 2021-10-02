@@ -1,6 +1,11 @@
 import { InputHTMLAttributes } from "react";
 import { Container, Label, Input, Errors } from "./styles";
 
+export interface Property {
+  name: string;
+  value: any;
+}
+
 export interface InputDefaultProps extends InputHTMLAttributes<any> {
   label: string;
   required?: boolean;

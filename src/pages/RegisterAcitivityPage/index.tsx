@@ -18,7 +18,7 @@ export default function RegisterActivityPage() {
   const { auth } = useAuth();
   const history = useHistory();
   const [activity, setActivity] = useState<RegisterAcitivity>({
-    name: 'teste',
+    name: '',
     tags: [],
     date: '',
     amountOfHours: 0,
@@ -30,7 +30,7 @@ export default function RegisterActivityPage() {
     event.preventDefault();
     try {
       validate();
-      post<RegisterAcitivity>('activity', activity)
+      post<RegisterAcitivity>('activity', activity);
       alert("Atividade cadastrada com sucesso!");
       history.push('/');
     } catch (error: any) {
